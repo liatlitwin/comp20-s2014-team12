@@ -1,0 +1,16 @@
+{
+"debts":
+[
+	{"Payer":"win","Amount":15, "PayTo":"riley", "Reason":""},
+	{"Payer":"riley","Amount":7, "PayTo":"peter", "Reason":""},
+	{"Payer":"riley","Amount":1, "PayTo":"michael", "Reason":""},
+	{"Payer":"peter","Amount":11, "PayTo":"riley", "Reason":"A"},
+	{"Payer":"peter","Amount":13, "PayTo":"michael", "Reason":"B"},
+	{"Payer":"peter","Amount":8, "PayTo":"win", "Reason":"C"},
+	{"Payer":"peter","Amount":20, "PayTo":"jack", "Reason":"D"},
+	{"Payer":"jack","Amount":5, "PayTo":"win", "Reason":"Lunch"},
+	{"Payer":"jack","Amount":6, "PayTo":"win", "Reason":"Dinner"},
+	{"Payer":"win","Amount":8, "PayTo":"peter", "Reason":""},
+	{"Payer":"win","Amount":3, "PayTo":"jack", "Reason":""}
+]
+}
