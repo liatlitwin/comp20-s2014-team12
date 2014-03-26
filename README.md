@@ -31,3 +31,6 @@ A way to minimize the number of money transfers by consolidating debts within a 
 
 ###Mock-Ups###
 ![IOYou Mockups](mockup.png)
+
+#COMMENTS
+* "Graph Theory to manipulate and consolidate the debts" --optimization, really? Do explain, or are you making this up?
