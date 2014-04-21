@@ -31,15 +31,17 @@ html(lang='en', data-ng-app='angular-client-side-auth')
                             a(href='/') Home
                         li(data-access-level='accessLevels.user', active-nav)
                             a(href='/transaction') New Transaction
+                        li(data-access-level='accessLevels.user', active-nav)
+                            a(href='/paymentWeb') Web of Payments
                         li(data-access-level='accessLevels.admin', active-nav)
                             a(href='/admin') Admin
                         li(data-access-level='accessLevels.user')
                             a(href="", data-ng-click="logout()")
                                 | Log out
-                        div#userInfo.pull-right(data-access-level='accessLevels.user')
-                            | Welcome&nbsp;
-                            strong {{ user.username }}&nbsp;
-                            span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
+                        //div#userInfo.pull-right(data-access-level='accessLevels.user')
+                        //    | Welcome&nbsp;
+                        //    strong {{ user.username }}&nbsp;
+                        //    span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
 
         .container(data-ui-view)
         #alertBox.alert.alert-danger(data-ng-show="error")
@@ -66,6 +68,8 @@ html(lang='en', data-ng-app='angular-client-side-auth')
             include partials/home
         script(type="text/ng-template", id="transaction")
             include partials/transaction
+        script(type="text/ng-template", id="paymentWeb")
+            include partials/paymentWeb
         script(type="text/ng-template", id="login")
             include partials/login
         script(type="text/ng-template", id="private/layout")
