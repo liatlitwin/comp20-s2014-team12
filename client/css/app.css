@@ -6,7 +6,7 @@ body {
 	margin:50px 0px; padding:0px;
 	text-align:center;
 	background-color: #8DC995;
-   	font-size: 1em;
+   	//font-size: 1em;
 }
 
 #cover {
@@ -97,12 +97,15 @@ body {
 	margin-top: -20px;
 	font-family: 'Oregano';
 	color: #E8E8E8;
+  margin-bottom: 20px;
 }
 
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555;
   cursor: default;
-  background-color: #fff;
+  background-color: #E8E8E8;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
