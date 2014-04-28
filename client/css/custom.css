@@ -1,0 +1,50 @@
+
+/*Custom boostrap css file*/
+
+body {
+	margin:50px 0px; padding:0px;
+	text-align:center;
+	background-color: #8DC995;
+}
+
+#Content {
+	width:500px;
+	margin:0px auto;
+	text-align:left;
+	padding:15px;
+	//border:1px dashed #333;
+	background-color:#E8E8E8;
+}
+
+.navbar {
+  position: relative;
+  min-height: 20px;
+  margin:0px auto;
+  width: 500px;
+  border: 1px solid transparent;
+}
+.nav-tabs {
+  border-bottom: 0px solid #ddd;
+}
+
+.ioyou{
+	font-size: 70px;
+	color: #E8E8E8;
+	font-style: italic;
+	font-family: 'Oregano', cursive;
+
+}
+.ioyousub{
+	font-size: 20px;
+	margin-top: -20px;
+	font-family: 'Oregano';
+	color: #E8E8E8;
+}
+
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
