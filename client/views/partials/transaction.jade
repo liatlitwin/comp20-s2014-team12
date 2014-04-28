@@ -4,10 +4,10 @@
     hr
     form.form-horizontal(ng-submit="newTransaction()", name="transactionForm", role="form")
         .form-group
-            .col-sm-2
+            .col-sm-4
                 input.form-control(type="text", data-ng-model="name", placeholder="name...", name="name", required, autofocus)
             label.control-label.col-sm-2(for="amount") owes
-            .col-sm-10
+            .col-sm-4
                 input.form-control(type="text", data-ng-model="amount", placeholder="$0.00", name="amount", required, autofocus)
         .form-group
             .col-sm-offset-2.col-sm-10
