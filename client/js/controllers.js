@@ -30,7 +30,7 @@ angular.module('angular-client-side-auth')
             amount: $scope.amount,
             reason: $scope.reason
         }, function() { //Success
-            $rootScope.error = "Created transaction";
+            $rootScope.success = "Created transaction";
         }, function() {
             $rootScope.error = "Failed to create transaction";
         });
