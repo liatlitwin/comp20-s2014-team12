@@ -27,12 +27,12 @@ angular.module('angular-client-side-auth')
         Auth.newTransaction( {
             payer: $scope.payer,
             payee: $scope.payee,
-            //amount: $scope.amount,
+            amount: $scope.amount,
             reason: $scope.reason
-        }, function() {
+        }, function() { //Success
             $rootScope.error = "Created transaction";
         }, function() {
-            $rootScope.error = $scope.payer;//"Failed to create transaction";
+            $rootScope.error = "Failed to create transaction";
         });
     };
 }]);

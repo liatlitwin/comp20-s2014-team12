@@ -59,7 +59,7 @@ module.exports = {
     newTransaction: function(req, res) {
         if (req.body.payer && req.body.payee && req.body.amount && req.body.reason) {
             db.collection('ioyou', function(er, collection) {
-                collection.insert({"payer" : req.query.payer, "payee" : req.query.payee, "amount" : req.query.amount, "reason" : req.query.reason }, function(err, result) { 
+                collection.insert({"payer" : req.body.payer, "payee" : req.body.payee, "amount" : req.body.amount, "reason" : req.body.reason }, function(err, result) { 
                 });
             });
             res.send(200);
