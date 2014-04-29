@@ -25,14 +25,14 @@ angular.module('angular-client-side-auth')
 
     $scope.newTransaction = function() {
         Auth.newTransaction( {
-            payer: $scope.user.payer,
-            payee: $scope.user.payee,
-            amount: $scope.user.amount,
-            reason: $scope.user.reason
+            payer: $scope.payer,
+            payee: $scope.payee,
+            amount: $scope.amount,
+            reason: $scope.reason
         }, function() {
             $rootScope.error = "Created transaction";
         }, function() {
-            $rootScope.error = $scope.user.payer;//"Failed to create transaction";
+            $rootScope.error = $scope.payer;//"Failed to create transaction";
         });
     };
 }]);
