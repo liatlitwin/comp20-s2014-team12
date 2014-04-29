@@ -19,9 +19,8 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('TransCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
-    $location.path('/');
     $scope.newTransaction = function() {
-        console.log('test');
+        $location.path('/asfsdf');
     };
 }]);
 
