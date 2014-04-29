@@ -32,7 +32,7 @@ angular.module('angular-client-side-auth')
         }, function() {
             $rootScope.error = "Created transaction";
         }, function() {
-            $rootScope.error = $scope.user.username;//"Failed to create transaction";
+            $rootScope.error = $scope.user.payer;//"Failed to create transaction";
         });
     };
 }]);
