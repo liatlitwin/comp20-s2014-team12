@@ -19,6 +19,7 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('TransCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+    $location.path('/');
     $scope.newTransaction = function() {
         console.log('test');
     };
@@ -31,7 +32,6 @@ angular.module('angular-client-side-auth')
     $scope.rememberme = true;
     $scope.login = function() {
         Auth.login({
-                $location.path('/12312313');
                 username: $scope.username,
                 password: $scope.password,
                 rememberme: $scope.rememberme
