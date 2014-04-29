@@ -24,7 +24,10 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.newTransaction = function() {
-        $rootScope.error = $scope.username;
+        if Auth.isLoggedIn($scope.user)
+            $rootScope.error = "yaya";
+        else
+            $rootScope.error = "no";
     };
 }]);
 
