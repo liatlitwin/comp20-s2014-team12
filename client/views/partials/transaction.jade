@@ -1,7 +1,7 @@
 #Content
     h1 New Transaction
     hr
-    form.form-horizontal(ng-submit="newTransaction()", name="transactionForm", role="form")
+    form.form-horizontal(data-ng-controller="TransCtrl", ng-submit="newTransaction()", name="transactionForm", role="form")
         .form-group
             .col-sm-4
                 input.form-control(type="text", data-ng-model="payer", placeholder="name", name="payer", required, autofocus)
