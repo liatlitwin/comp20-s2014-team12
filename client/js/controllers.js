@@ -27,7 +27,7 @@ angular.module('angular-client-side-auth')
         Auth.newTransaction( {
             payer: $scope.payer,
             payee: $scope.payee,
-            amount: $scope.amount,
+            //amount: $scope.amount,
             reason: $scope.reason
         }, function() {
             $rootScope.error = "Created transaction";
