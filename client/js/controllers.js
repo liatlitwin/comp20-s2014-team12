@@ -24,7 +24,7 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.newTransaction = function() {
-        $rootScope.error = "success";
+        $rootScope.error = $scope.user;
     };
 }]);
 
