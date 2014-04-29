@@ -58,13 +58,13 @@ module.exports = {
 
     newTransaction: function(req, res) {
         if (req.body.payer && req.body.payee && req.body.amount && req.body.reason) {
-            res.status(200);
             db.collection('ioyou', function(er, collection) {
                 collection.insert({"payer" : req.query.payer, "payee" : req.query.payee, "amount" : req.query.amount, "reason" : req.query.reason }, function(err, result) { 
                 });
             });
+            res.send(200);
         }
         else
-            res.status(400);
+            res.send(400);
     }
 };
