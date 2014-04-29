@@ -39,15 +39,6 @@ angular.module('angular-client-side-auth')
                 success(user);
             }).error(error);
         },
-        newTransaction: function(user, success, error) {
-            /*$http.post('/login', user).success(function(user){
-                changeUser(user);
-                success(user);
-            }).error(error);
-            */
-            alert('test!');
-            console.log('test');
-        },
         logout: function(success, error) {
             $http.post('/logout').success(function(){
                 changeUser({
