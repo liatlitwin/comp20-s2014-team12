@@ -24,11 +24,19 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.newTransaction = function() {
-        if Auth.isLoggedIn($scope.user)
+        Auth.logout(function() {
+            $location.path('/login');
+        }, function() {
+            $rootScope.error = "Failed to logout";
+        });
+    };
+    /*
+        if (Auth.isLoggedIn($scope.user))
             $rootScope.error = "yaya";
         else
             $rootScope.error = "no";
     };
+    */
 }]);
 
 angular.module('angular-client-side-auth')
