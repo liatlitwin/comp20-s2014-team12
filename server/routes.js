@@ -7,6 +7,17 @@ var _ =           require('underscore')
     , userRoles = require('../client/js/routingConfig').userRoles
     , accessLevels = require('../client/js/routingConfig').accessLevels;
 
+// Establish database connection
+var mongo = require('mongodb');
+
+var mongoUri = process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://ioyou:ioyou@dbh85.mongolab.com:27857/heroku_app24539980';
+
+var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
+    db = databaseConnection;
+});
+
 var routes = [
 
     // Views
@@ -96,6 +107,13 @@ var routes = [
         httpMethod: 'GET',
         middleware: [UserCtrl.index],
         accessLevel: accessLevels.admin
+    },
+    
+    // Transaction post method (May need to rename the path for the getter
+    {
+        path: '/transaction',
+        httpMethod: 'POST',
+        middleware: [AuthCtrl.newTransaction]
     },
 
     // All other get requests should be handled by AngularJS's client-side routing system

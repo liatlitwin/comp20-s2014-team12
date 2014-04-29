@@ -48,8 +48,8 @@ angular.module('angular-client-side-auth')
                 success();
             }).error(error);
         },
-        newTransaction: function(success, error) {
-            $http.post('/transactions').success(function(){
+        newTransaction: function(tranData, success, error) {
+            $http.post('/transaction', tranData).success(function(){
                 success();
             }).error(error);
         },
