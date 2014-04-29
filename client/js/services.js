@@ -49,7 +49,7 @@ angular.module('angular-client-side-auth')
             }).error(error);
         },
         newTransaction: function(tranData, success, error) {
-            $http.post('/transaction', tranData).success(function(){
+            $http.post('/transaction', JSON.stringify(tranData)).success(function(){
                 success();
             }).error(error);
         },
