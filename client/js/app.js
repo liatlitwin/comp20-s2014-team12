@@ -55,8 +55,7 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
         })
         .state('user.transaction', {
             url: '/transaction',
-            templateUrl: 'transaction',
-            controller: 'TransactionCtrl'
+            templateUrl: 'transaction'
         })
         .state('user.paymentWeb', {
             url: '/paymentWeb',

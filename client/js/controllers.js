@@ -15,12 +15,8 @@ angular.module('angular-client-side-auth')
             $rootScope.error = "Failed to logout";
         });
     };
-}]);
-
-angular.module('angular-client-side-auth')
-.controller('TransCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.newTransaction = function() {
-        $location.path('/asfsdf');
+        $rootScope.error = "success";
     };
 }]);
 
