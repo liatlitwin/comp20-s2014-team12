@@ -8,7 +8,7 @@ var _ =           require('underscore')
     , accessLevels = require('../client/js/routingConfig').accessLevels;
 
 // Establish database connection
-var mongo = require('mongodb');
+/*var mongo = require('mongodb');
 
 var mongoUri = process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
@@ -17,6 +17,7 @@ var mongoUri = process.env.MONGOLAB_URI ||
 var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
     db = databaseConnection;
 });
+*/
 
 var routes = [
 
