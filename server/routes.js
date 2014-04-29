@@ -110,12 +110,13 @@ var routes = [
         accessLevel: accessLevels.admin
     },
     
-    // Transaction post method (May need to rename the path for the getter
+/*    // Transaction post method (May need to rename the path for the getter
     {
         path: '/transaction',
         httpMethod: 'POST',
         middleware: [AuthCtrl.newTransaction]
     },
+    */
 
     // All other get requests should be handled by AngularJS's client-side routing system
     {
