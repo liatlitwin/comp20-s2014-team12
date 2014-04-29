@@ -27,7 +27,7 @@ angular.module('angular-client-side-auth')
         Auth.newTransaction(function() {
             $rootScope.error = "Created transaction";
         }, function() {
-            $rootScope.error = "Failed to create transaction";
+            $rootScope.error = JSON.stringify($scope.user);//"Failed to create transaction";
         });
     };
 }]);
