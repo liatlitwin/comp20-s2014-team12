@@ -49,6 +49,10 @@ html(lang='en', data-ng-app='angular-client-side-auth')
             button(type="button", class="close", data-ng-click="error = null;") &times;
             strong Oh no!&nbsp;
             span(data-ng-bind="error")
+        #alertBox.alert.alert-success(data-ng-show="success")
+            button(type="button", class="close", data-ng-click="success = null;") &times;
+            strong Yay!&nbsp;
+            span(data-ng-bind="success")
 
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-cookies/angular-cookies.min.js')
