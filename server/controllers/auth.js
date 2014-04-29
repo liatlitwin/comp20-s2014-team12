@@ -1,6 +1,18 @@
 var passport =  require('passport')
     , User = require('../models/User.js');
 
+// Establish database connection
+var mongo = require('mongodb');
+
+var mongoUri = process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://ioyou:ioyou@dbh85.mongolab.com:27857/heroku_app24539980';
+
+var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
+    db = databaseConnection;
+});
+
+
 module.exports = {
     register: function(req, res, next) {
         try {
