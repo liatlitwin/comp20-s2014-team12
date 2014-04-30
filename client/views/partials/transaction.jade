@@ -1,5 +1,5 @@
 #Content
-    h2 Input a new transaction:
+    h1 Input a new transaction:
     hr
     form.form-inline(data-ng-controller="TransCtrl", ng-submit="newTransaction()", name="transactionForm", role="form")
         .form-group
@@ -8,8 +8,8 @@
                 option owes
                 option paid
             input.form-control(type="text", data-ng-model="payee", placeholder="name", name="payee", required, autofocus)
-            label.control-label &nbsp;&nbsp;&nbsp;$
-                input.form-control(type="text", data-ng-model="amount", placeholder="0.00", name="amount", required, autofocus)
+            //label.control-label &nbsp;&nbsp;&nbsp;$
+            input.form-control(type="text", data-ng-model="amount", placeholder="$0.00", name="amount", required, autofocus)
             br
             br
         .form-group
