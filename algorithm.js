@@ -29,7 +29,7 @@ function init()
 			checkMatrix();
 			algorithm();
 			checkMatrix();
-			printResults();
+			sendResults();
         }
     }
 
@@ -42,37 +42,37 @@ function init()
 	data = {
 			"debts":
 				[
-	{"Payer":"win","Amount":15.23, "PayTo":"riley", "Reason":""},
-	{"Payer":"riley","Amount":7.75, "PayTo":"peter", "Reason":""},
-	{"Payer":"riley","Amount":1.97, "PayTo":"michael", "Reason":""},
-	{"Payer":"peter","Amount":11.24, "PayTo":"riley", "Reason":"A"},
-	{"Payer":"peter","Amount":13.82, "PayTo":"michael", "Reason":"B"},
-	{"Payer":"peter","Amount":8.73, "PayTo":"win", "Reason":"C"},
-	{"Payer":"peter","Amount":20.00, "PayTo":"jack", "Reason":"D"},
-	{"Payer":"jack","Amount":5.97, "PayTo":"win", "Reason":"Lunch"},
-	{"Payer":"jack","Amount":6.43, "PayTo":"win", "Reason":"Dinner"},
-	{"Payer":"win","Amount":8.24, "PayTo":"peter", "Reason":""},
-	{"Payer":"win","Amount":3.10, "PayTo":"jack", "Reason":""},
-	{"Payer":"win","Amount":7.00, "PayTo":"riley", "Reason":""},
-	{"Payer":"riley","Amount":8.94, "PayTo":"peter", "Reason":""},
-	{"Payer":"peter","Amount":9.12, "PayTo":"jack", "Reason":"A"},
-	{"Payer":"jack","Amount":10.48, "PayTo":"michael", "Reason":"Dinner"},
-	{"Payer":"michael","Amount":11.69, "PayTo":"win", "Reason":""},
-	{"Payer":"riley","Amount":7.28, "PayTo":"win", "Reason":""},
-	{"Payer":"peter","Amount":6.91, "PayTo":"riley", "Reason":""},
-	{"Payer":"jack","Amount":7.69, "PayTo":"peter", "Reason":"A"},
-	{"Payer":"jack","Amount":9.97, "PayTo":"win", "Reason":"Dinner"},
-	{"Payer":"jack","Amount":15.99, "PayTo":"michael", "Reason":""},
-	{"Payer":"raewyn","Amount":8.99, "PayTo":"michael", "Reason":""},
-	{"Payer":"win","Amount":4.99, "PayTo":"raewyn", "Reason":""},
-	{"Payer":"liat","Amount":7.24, "PayTo":"win", "Reason":""},
-	{"Payer":"bobby","Amount":24.92, "PayTo":"win", "Reason":""},
-	{"Payer":"win","Amount":11.49, "PayTo":"michael", "Reason":""},
-	{"Payer":"jack","Amount":15.99, "PayTo":"michael", "Reason":""},
-	{"Payer":"nicki","Amount":0, "PayTo":"", "Reason":""},
-	{"Payer":"A","Amount":5, "PayTo":"B", "Reason":""},
-	{"Payer":"B","Amount":1, "PayTo":"C", "Reason":""},
-	{"Payer":"C","Amount":0.98, "PayTo":"A", "Reason":""}	
+	{"payer":"win","Amount":15.23, "PayTo":"riley", "Reason":""},
+	{"payer":"riley","Amount":7.75, "PayTo":"peter", "Reason":""},
+	{"payer":"riley","Amount":1.97, "PayTo":"michael", "Reason":""},
+	{"payer":"peter","Amount":11.24, "PayTo":"riley", "Reason":"A"},
+	{"payer":"peter","Amount":13.82, "PayTo":"michael", "Reason":"B"},
+	{"payer":"peter","Amount":8.73, "PayTo":"win", "Reason":"C"},
+	{"payer":"peter","Amount":20.00, "PayTo":"jack", "Reason":"D"},
+	{"payer":"jack","Amount":5.97, "PayTo":"win", "Reason":"Lunch"},
+	{"payer":"jack","Amount":6.43, "PayTo":"win", "Reason":"Dinner"},
+	{"payer":"win","Amount":8.24, "PayTo":"peter", "Reason":""},
+	{"payer":"win","Amount":3.10, "PayTo":"jack", "Reason":""},
+	{"payer":"win","Amount":7.00, "PayTo":"riley", "Reason":""},
+	{"payer":"riley","Amount":8.94, "PayTo":"peter", "Reason":""},
+	{"payer":"peter","Amount":9.12, "PayTo":"jack", "Reason":"A"},
+	{"payer":"jack","Amount":10.48, "PayTo":"michael", "Reason":"Dinner"},
+	{"payer":"michael","Amount":11.69, "PayTo":"win", "Reason":""},
+	{"payer":"riley","Amount":7.28, "PayTo":"win", "Reason":""},
+	{"payer":"peter","Amount":6.91, "PayTo":"riley", "Reason":""},
+	{"payer":"jack","Amount":7.69, "PayTo":"peter", "Reason":"A"},
+	{"payer":"jack","Amount":9.97, "PayTo":"win", "Reason":"Dinner"},
+	{"payer":"jack","Amount":15.99, "PayTo":"michael", "Reason":""},
+	{"payer":"raewyn","Amount":8.99, "PayTo":"michael", "Reason":""},
+	{"payer":"win","Amount":4.99, "PayTo":"raewyn", "Reason":""},
+	{"payer":"liat","Amount":7.24, "PayTo":"win", "Reason":""},
+	{"payer":"bobby","Amount":24.92, "PayTo":"win", "Reason":""},
+	{"payer":"win","Amount":11.49, "PayTo":"michael", "Reason":""},
+	{"payer":"jack","Amount":15.99, "PayTo":"michael", "Reason":""},
+	{"payer":"nicki","Amount":0, "PayTo":"", "Reason":""},
+	{"payer":"A","Amount":5, "PayTo":"B", "Reason":""},
+	{"payer":"B","Amount":1, "PayTo":"C", "Reason":""},
+	{"payer":"C","Amount":0.98, "PayTo":"A", "Reason":""}	
 				]
 			}
 			checkSize();
@@ -93,7 +93,7 @@ function checkSize()	// Calculates required size for "matrix" array
 		var duplicate = false;
 		for (var j = 0; j<mapping.length; j++)
 		{
-			var strpayer = data["debts"][i]["Payer"];
+			var strpayer = data["debts"][i]["payer"];
 			var strtest = mapping[j];
 
 			if(strpayer == strtest)
@@ -103,7 +103,7 @@ function checkSize()	// Calculates required size for "matrix" array
 		}
 		if(duplicate == false)
 		{
-			var name = data["debts"][i]["Payer"];
+			var name = data["debts"][i]["payer"];
 			mapping[mapping.length] = name;
 		}
 
@@ -150,7 +150,7 @@ function createMatrix() // Creates and fills the "matrix" array
 
 	for(var i = 0; i<data["debts"].length; i++)
 	{
-		var payer = data["debts"][i]["Payer"];
+		var payer = data["debts"][i]["payer"];
 		var amount = data["debts"][i]["Amount"];
 		var payto = data["debts"][i]["PayTo"];
 		var payermap;
@@ -302,24 +302,8 @@ function checkMatrix()	// Prints out visual representation of "matrix" and key i
 
 }
 
-function printResults() // Prints out leftover debts
+function sendResults() // Sends final outcome to database
 {
-	var numtrans = 0;
-	for(var i = 0; i<size; i++)
-	{
-		var personaltrans = 0;
-		for(var j = 0; j<size; j++)
-		{
-			if(matrix[i][j] != 0)
-			{
-				console.log(mapping[i] + " owes " + mapping[j] + " $" + matrix[i][j].toFixed(2));
-				numtrans++;
-				personaltrans++;
-			}
-		}
-		//console.log(mapping[i] + " has " + personaltrans + " transfers");
-	}
-
 	for(var i = 0; i<size; i++)
 	{
 		for(var j = 0; j<size; j++)
@@ -327,11 +311,24 @@ function printResults() // Prints out leftover debts
 			endtotal += matrix[i][j];
 		}
 	}
-
+	var finalstr = "";
 	var diff = (starttotal - endtotal);
 	diff = diff.toFixed(2);
-	console.log("Start amount: $"+starttotal.toFixed(2)+" , End amount: $"+endtotal.toFixed(2));
-	console.log("Total dollars simplified: $" + diff);
-	console.log("Number of transfers: " + numtrans);
+	var numtrans = 0;
+	for(var i = 0; i<size; i++)
+	{
+		for(var j = 0; j<size; j++)
+		{
+			if(matrix[i][j] != 0)
+			{
+				numtrans++;
+				var finalpayer = mapping[i];
+				var finalpayee = mapping[j];
+				var finalamount = matrix[i][j].toFixed(2);
+				var finalstr = {"payer":finalpayer,"payee":payee,"amount":finalamount};
+			}
+		}
+	}
 	endtotal = 0;
+	numtrans = 0;
 }
