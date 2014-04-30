@@ -10,6 +10,10 @@
             .col-sm-10
                 input.form-control(type="password", data-ng-model="password", placeholder="Password", name="password", required, data-ng-minlength="5", data-ng-maxlength="60")
         .form-group
+            label.control-label.col-sm-2(for="email") Email
+            .col-sm-10
+                input.form-control(type="email", data-ng-model="email", placeholder="Email", name="email", required)
+        .form-group
             .radio.radio-inline
                 label
                     input(type="radio", name="role", data-ng-model="role", id="adminRole", data-ng-value="userRoles.admin")
