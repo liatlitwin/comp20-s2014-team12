@@ -53,6 +53,11 @@ angular.module('angular-client-side-auth')
                 success();
             }).error(error);
         },
+        getData: function(success, error) {
+            $http.get('/data').success(function(response){
+                success(response);
+            }).error(error);
+        },
         accessLevels: accessLevels,
         userRoles: userRoles,
         user: currentUser

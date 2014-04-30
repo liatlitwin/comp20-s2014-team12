@@ -1,27 +1,19 @@
 #Content
 	h1 Transaction Log
-	#page
+	//#page
 
 	//the below is not working, but a rough idea of how we would display info from teh database... I think?
 	script.
-		var mongoUri = process.env.MONGOLAB_URI ||
-			process.env.MONGOHQ_URL || 'mongodb://ioyou:ioyou@dbh85.mongolab.com:27857/heroku_app24539980';
-		var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
-			db = databaseConnection; });
-		db.collection('ioyou', function(er, collection){
-			collection.find().sort({payer:1}, function(err, posts){
-				posts.toArray(function(err, postsArray){
-					var trans, translog;
-					postsArray.forEach(function(trans){
-						if(trans.user == user.username){
-							translog += trans.payer + "  " + trans.payee; 
-							var content = document.getElementById("Content");
-							text = document.createTextNode(translog);
-							var list = document.createElement("li");
-							list.appendChild(text);
-							content.appendChild(list);
-						}
-					});
-				});
-			});
-		});
+        var trans, translog;
+        data.forEach(function(trans){
+            alert(trans.user);
+            //if(trans.user == user.username){
+                translog += trans.payer + "  " + trans.payee; 
+                var content = document.getElementById("Content");
+                text = document.createTextNode(translog);
+                var list = document.createElement("li");
+                list.appendChild(text);
+                content.appendChild(list);
+            //}
+        });
+

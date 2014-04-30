@@ -66,5 +66,14 @@ module.exports = {
         }
         else
             res.send(400);
+    },
+    getData: function(req, res) {
+        db.collection('ioyou', function(er, collection) {
+            collection.find({}).toArray(function(err, docs) {
+                    response.send(docs);
+              });
+        });
+
     }
+
 };

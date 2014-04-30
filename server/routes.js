@@ -107,6 +107,12 @@ var routes = [
         middleware: [AuthCtrl.newTransaction]
     },
     
+    {
+        path: '/data',
+        httpMethod: 'GET',
+        middleware: [AuthCtrl.getData]
+    },
+    
 
     // All other get requests should be handled by AngularJS's client-side routing system
     {
