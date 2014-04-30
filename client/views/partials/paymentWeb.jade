@@ -1,6 +1,6 @@
-.Content#paymentweb
+.Content#paymentweb(ng-controller="DataCtrl")
 	h1 Payment Web
-	iframe(onload="createGraph();" width="0" height="0" frameborder = "0") 
+    iframe(onload="createGraph({{data}});" width="0" height="0" frameborder = "0") 
 	div#canvas
 	script(type='text/javascript')
 		createGraph()		

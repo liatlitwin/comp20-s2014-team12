@@ -1,4 +1,4 @@
-function createGraph() // Creates graphs and renders
+function createGraph(data) // Creates graphs and renders
 { 
     $(document).ready(function() {
 
@@ -10,7 +10,8 @@ function createGraph() // Creates graphs and renders
         g.edgeFactory.template.style.directed = true;
 
         // Import data from MongoLab here
-
+        
+        /*
         // Test data
         data = [
         {"payer":"peter","amount":4.74, "payee":"win"},
@@ -24,6 +25,7 @@ function createGraph() // Creates graphs and renders
         {"payer":"bobby","amount":24.92, "payee":"win"},
         {"payer":"A","amount":4.00, "payee":"B"},    
         {"payer":"A","amount":0.02, "payee":"C"}];
+        */
 
         var render = function(r, n) {
                 /* the Raphael set is obligatory, containing all you want to display */
