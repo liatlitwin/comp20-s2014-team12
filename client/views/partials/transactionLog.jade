@@ -1,19 +1,19 @@
 #Content
-	h1 Transaction Log
-	//#page
+    h1 Transaction Log
+    //#page
 
-	//the below is not working, but a rough idea of how we would display info from teh database... I think?
-	script.
+    //the below is not working, but a rough idea of how we would display info from teh database... I think?
+    script.
         var trans, translog;
         data.forEach(function(trans){
             alert(trans.user);
             //if(trans.user == user.username){
-                translog += trans.payer + "  " + trans.payee; 
-                var content = document.getElementById("Content");
-                text = document.createTextNode(translog);
-                var list = document.createElement("li");
-                list.appendChild(text);
-                content.appendChild(list);
+            translog += trans.payer + "  " + trans.payee; 
+            var content = document.getElementById("Content");
+            text = document.createTextNode(translog);
+            var list = document.createElement("li");
+            list.appendChild(text);
+            content.appendChild(list);
             //}
         });
 
