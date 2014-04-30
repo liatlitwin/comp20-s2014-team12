@@ -13,8 +13,8 @@ var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
 });
 
 var sendgrid = require('sendgrid')(
-    'process.env.app24539980@heroku.com', 
-    'process.env.wyybwkby'
+    'app24539980@heroku.com', 
+    'wyybwkby'
 );
 
 module.exports = {
