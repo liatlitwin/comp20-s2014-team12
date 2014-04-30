@@ -18,7 +18,7 @@ angular.module('angular-client-side-auth')
 }]);
 
 angular.module('angular-client-side-auth')
-.controller('DataCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+.controller('WebCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.user = Auth.user;
     $scope.userRoles = Auth.userRoles;
     $scope.accessLevels = Auth.accessLevels;
@@ -55,11 +55,10 @@ angular.module('angular-client-side-auth')
             var mapping = new Array();
             for(var i = 0; i<data.length; i++)
             {
-
                 var duplicate = false;
                 for (var j = 0; j<mapping.length; j++)
                 {
-                    var strpayer = data[i]["payer"];
+                    var strpayer = $scope.data[i]["payer"];
                     var strtest = mapping[j];
 
                     if(strpayer == strtest)
@@ -69,17 +68,17 @@ angular.module('angular-client-side-auth')
                 }
                 if(duplicate == false)
                 {
-                    var name = data[i]["payer"];
+                    var name = $scope.data[i]["payer"];
                     mapping[mapping.length] = name;
                 }
             }
-            for(var i = 0; i<data.length; i++)
+            for(var i = 0; i<$scope.data.length; i++)
             {
 
                 var duplicate = false;
                 for (var j = 0; j<mapping.length; j++)
                 {
-                    var strpayer = data[i]["payee"];
+                    var strpayer = $scope.data[i]["payee"];
                     var strtest = mapping[j];
 
                     if(strpayer == strtest)
@@ -89,7 +88,7 @@ angular.module('angular-client-side-auth')
                 }
                 if(duplicate == false)
                 {
-                    var name = data[i]["payee"];
+                    var name = $scope.data[i]["payee"];
                     mapping[mapping.length] = name;
                 }
             }
@@ -101,11 +100,11 @@ angular.module('angular-client-side-auth')
             }
 
             // Creating the edges / lines between node / people
-            for(var i = 0; i<data.length; i++)
+            for(var i = 0; i<$scope.data.length; i++)
             {
-                var payer = data[i]["payer"];
-                var payee = data[i]["payee"];
-                var amount = "$"+data[i]["amount"].toFixed(2);
+                var payer = $scope.data[i]["payer"];
+                var payee = $scope.data[i]["payee"];
+                var amount = "$"+$scope.data[i]["amount"].toFixed(2);
                 // stroke and fill color = line
                 // fill in "label-style" = font color of $
                 g.addEdge(payer,payee, {weight: 2, stroke :"green", fill: "green", directed: true, label : ""+amount, "label-style":{"font-size":20, fill: "#000"}});
@@ -118,6 +117,20 @@ angular.module('angular-client-side-auth')
             renderer.draw();
         //});
     //};
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('DataCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+    $scope.user = Auth.user;
+    $scope.userRoles = Auth.userRoles;
+    $scope.accessLevels = Auth.accessLevels;
+
+    Auth.getData(function(res) {
+        $scope.data = res;
+        //$rootScope.error = "Success";
+    }, function() {
+        $rootScope.error = "Failed to retrieve data";
+    });
 }]);
 
 angular.module('angular-client-side-auth')
