@@ -15,6 +15,14 @@ angular.module('angular-client-side-auth')
             $rootScope.error = "Failed to logout";
         });
     };
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('DataCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+    $scope.user = Auth.user;
+    $scope.userRoles = Auth.userRoles;
+    $scope.accessLevels = Auth.accessLevels;
+
     $scope.getData = function() {
         /*Auth.getData(function(res) {
             $rootScope.success = "Retrieved data";
