@@ -65,15 +65,19 @@ body {
 body {
 	}
 
-#Content {
+.Content {
 	width:500px;
 	margin:0px auto;
 	text-align:left;
 	padding:15px;
 	//border:1px dashed #333;
 	background-color:#E8E8E8;
+  border-radius: 10px;
 }
 
+.Content#paymentweb {
+  width:820px;
+}
 
 
 .ioyou{

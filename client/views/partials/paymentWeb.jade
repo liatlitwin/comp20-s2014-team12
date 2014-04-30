@@ -1,7 +1,7 @@
-#Content
-    h1 Payment Web
-    p Web image here
-    script(type='text/javascript')
-        createGraph()
-    div#canvas
-
+.Content#paymentweb
+	h1 Payment Web
+	#paymentweb
+		iframe(onload="createGraph();" width="0" height="0")
+		div#canvas
+		script(type='text/javascript')
+			createGraph()		
