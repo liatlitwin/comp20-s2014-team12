@@ -24,8 +24,8 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     Auth.getData(function(res) {
-        $rootScope.success = "Success"+JSON.stringify($res);
         $scope.data = res;
+        $rootScope.error = "Success";
     }, function() {
         $rootScope.error = "Failed to retrieve data";
     });
