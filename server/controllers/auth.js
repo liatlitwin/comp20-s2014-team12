@@ -12,6 +12,7 @@ var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
     db = databaseConnection;
 });
 
+var sendgrid = require('sendgrid')(process.env.app24539980@heroku.com, process.env.wyybwkby);
 
 module.exports = {
     register: function(req, res, next) {
@@ -30,6 +31,13 @@ module.exports = {
                 if(err)     { next(err); }
                 else        { res.json(200, { "role": user.role, "username": user.username }); }
             });
+        });
+        sendgrid.send({
+            to: 'mcshane.bobby@gmail.com',
+            from: 'noreply@ioyou.com',
+            subject: 'Welcome to IOyou!',
+            text: 'Thank you for registering!'
+        }, function(err, json) {
         });
     },
 
