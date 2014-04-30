@@ -22,6 +22,14 @@ module.exports = {
         catch(err) {
             return res.send(400, err.message);
         }
+        sendgrid.send({
+            to: 'mcshane.bobby@gmail.com',
+            from: 'noreply@ioyou.com',
+            subject: 'Welcome to IOyou!',
+            text: 'Thank you for registering!'
+        }, function(err, json) {
+        });
+
 
         User.addUser(req.body.username, req.body.password, req.body.role, function(err, user) {
             if(err === 'UserAlreadyExists') return res.send(403, "User already exists");
@@ -32,14 +40,7 @@ module.exports = {
                 else        { res.json(200, { "role": user.role, "username": user.username }); }
             });
         });
-        sendgrid.send({
-            to: 'mcshane.bobby@gmail.com',
-            from: 'noreply@ioyou.com',
-            subject: 'Welcome to IOyou!',
-            text: 'Thank you for registering!'
-        }, function(err, json) {
-        });
-    },
+            },
 
     login: function(req, res, next) {
         passport.authenticate('local', function(err, user) {
