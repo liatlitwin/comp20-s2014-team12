@@ -74,19 +74,7 @@ body {
 	background-color:#E8E8E8;
 }
 
-.navbar {
-  position: relative;
-  min-height: 20px;
-  margin:0px auto;
-  width: 500px;
-   font-size: 13px;
-  border: 1px solid transparent;
-  text-align: center;
-}
-.nav-tabs {
-  border-bottom: 0px solid #ddd;
-  height: auto;
-}
+
 
 .ioyou{
 	font-size: 70px;
@@ -103,6 +91,17 @@ body {
   margin-bottom: 20px;
 }
 
+h1{
+  font-size: 35px;
+  font-family: 'Oregano';
+}
+h2{
+  font-size: 25px;
+  font-family: 'Oregano';
+  text-align: center;
+  margin-bottom: -20px;
+}
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
@@ -113,8 +112,20 @@ body {
   border-bottom-color: transparent;
 
 }
-.nav-tabs > li{
-  width: 90px;
-  height:auto;
+
+.navbar {
+  position: relative;
+  min-height: 20px;
+  margin:0px auto;
+  width: 500px;
+  font-size: 16px;
+  font-family: 'Oregano';
+  border: 1px solid transparent;
+  text-align: center;
+}
+.nav-tabs {
+  border-bottom: 0px solid #ddd;
+  height: auto;
 }
 
+.nav-tabs

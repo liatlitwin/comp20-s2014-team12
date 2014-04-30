@@ -29,16 +29,16 @@ html(lang='en', data-ng-app='angular-client-side-auth')
                         li(data-access-level='accessLevels.anon', active-nav)
                             a(href='/register') Register
                         li(data-access-level='accessLevels.user', active-nav)
-                            a(href='/') <br> Home
+                            a(href='/') Home
                         li(data-access-level='accessLevels.user', active-nav)
                             a(href='/transaction') New Transaction
                         li(data-access-level='accessLevels.user', active-nav)
                             a(href='/paymentWeb') Web of Payments
                         li(data-access-level='accessLevels.admin', active-nav)
-                            a(href='/admin') <br> Admin
+                            a(href='/admin') Admin
                         li(data-access-level='accessLevels.user')
                             a(href="", data-ng-click="logout()")
-                                | <br> Log out
+                                | Log out
                         //div#userInfo.pull-right(data-access-level='accessLevels.user')
                         //    | Welcome&nbsp;
                         //    strong {{ user.username }}&nbsp;
