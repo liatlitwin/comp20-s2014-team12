@@ -13,25 +13,25 @@ function createGraph() // Creates graphs and renders
 
         // Test data
         data = [
-        {"payer":"peter","amount":4.74, "payee":"win", "Reason":""},
-        {"payer":"peter","amount":4.74, "payee":"michael", "Reason":""},
-        {"payer":"jack","amount":7.69, "payee":"win", "Reason":""},
-        {"payer":"jack","amount":1.46, "payee":"riley", "Reason":"A"},
-        {"payer":"jack","amount":7.69, "payee":"michael", "Reason":"B"},
-        {"payer":"raewyn","amount":4.00, "payee":"michael", "Reason":"C"},
-        {"payer":"liat","amount":0.49, "payee":"win", "Reason":"D"},
-        {"payer":"liat","amount":6.75, "payee":"riley", "Reason":"D"},
-        {"payer":"bobby","amount":24.92, "payee":"win", "Reason":"D"},
-        {"payer":"A","amount":4.00, "payee":"B", "Reason":"D"},    
-        {"payer":"A","amount":0.02, "payee":"C", "Reason":"D"}];
+        {"payer":"peter","amount":4.74, "payee":"win"},
+        {"payer":"peter","amount":4.74, "payee":"michael"},
+        {"payer":"jack","amount":7.69, "payee":"win"},
+        {"payer":"jack","amount":1.46, "payee":"riley"},
+        {"payer":"jack","amount":7.69, "payee":"michael"},
+        {"payer":"raewyn","amount":4.00, "payee":"michael"},
+        {"payer":"liat","amount":0.49, "payee":"win"},
+        {"payer":"liat","amount":6.75, "payee":"riley"},
+        {"payer":"bobby","amount":24.92, "payee":"win"},
+        {"payer":"A","amount":4.00, "payee":"B"},    
+        {"payer":"A","amount":0.02, "payee":"C"}];
 
         var render = function(r, n) {
                 /* the Raphael set is obligatory, containing all you want to display */
                 var set = r.set().push(
                     /* custom objects go here */
                     // fill color here = color of the node
-                    r.rect(n.point[0]-40, n.point[1]-13, 80, 44).attr({"fill": "#66CCCC", r : "30px", "stroke-width" : 1})).push(
-                    r.text(n.point[0], n.point[1] + 10, (n.label || n.id)).attr({"font-size":"15px"}));
+                    r.rect(n.point[0]-45, n.point[1]-8, 90, 35).scale((width*.00075)+.5).attr({"fill": "#66CCCC", r : "10px", "stroke-width" : 1})).push(
+                    r.text(n.point[0], n.point[1] + 10, (n.label || n.id)).attr({"font-size": (width*.01)+10}));
                 return set;
             };
 
@@ -92,7 +92,7 @@ function createGraph() // Creates graphs and renders
             var amount = "$"+data[i]["amount"].toFixed(2);
             // stroke and fill color = line
             // fill in "label-style" = font color of $
-            g.addEdge(payer,payee, {weight: 2, stroke : "#38503C", fill: "#38503C", directed: true, label : ""+amount, "label-style":{"font-size":13, fill: "#38503C"}});
+            g.addEdge(payer,payee, {weight: 2, stroke :"#38503C", fill: "#38503C", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+10, fill: "#E8E8E8"}});
         }
 
         //  Rendering canvas
