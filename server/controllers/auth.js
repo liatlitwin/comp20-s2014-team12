@@ -12,7 +12,10 @@ var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
     db = databaseConnection;
 });
 
-var sendgrid = require('sendgrid')('process.env.app24539980@heroku.com', 'process.env.wyybwkby');
+var sendgrid = require('sendgrid')(
+    'process.env.app24539980@heroku.com', 
+    'process.env.wyybwkby'
+);
 
 module.exports = {
     register: function(req, res, next) {
@@ -22,7 +25,17 @@ module.exports = {
         catch(err) {
             return res.send(400, err.message);
         }
-        sendgrid.send({
+        var email     = new sendgrid.Email({
+          to:       'mcshane.bobby@gmail.com',
+          from:     'you@yourself.com',
+          subject:  'Subject goes here',
+          text:     'Hello world'
+        });
+        sendgrid.send(email, function(err, json) {
+              if (err) { return console.error(err); }
+                console.log(json);
+        });
+        /*sendgrid.send({
             to: 'mcshane.bobby@gmail.com',
             from: 'noreply@ioyou.com',
             subject: 'Welcome to IOyou!',
@@ -30,6 +43,7 @@ module.exports = {
         }, function(err, json) {
             return res.send(405, 'Failed to send email');
         });
+        */
 
 
         User.addUser(req.body.username, req.body.password, req.body.role, function(err, user) {
