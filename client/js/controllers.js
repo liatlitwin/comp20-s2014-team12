@@ -48,7 +48,7 @@ angular.module('angular-client-side-auth')
             reason: $scope.reason
         }, function() { //Success
             $rootScope.success = "Created transaction";
-            $location.path('/transactionLog');
+            $location.path('/home');
         }, function() {
             $rootScope.error = "Failed to create transaction";
         });
