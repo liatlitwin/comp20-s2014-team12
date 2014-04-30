@@ -1,6 +1,4 @@
 #Content
     h1 Transaction Log
     ul
-        li Test
-        for trans in data
-            li= trans.payee
+        li(ng-repeat="transaction in data") {transaction.payee}
