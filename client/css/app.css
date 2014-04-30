@@ -65,7 +65,7 @@ body {
 body {
 	}
 
-#Content {
+.Content {
 	width:500px;
 	margin:0px auto;
 	text-align:left;
@@ -75,6 +75,9 @@ body {
   border-radius: 10px;
 }
 
+.Content#paymentweb {
+  width:820px;
+}
 
 
 .ioyou{

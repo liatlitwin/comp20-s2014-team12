@@ -1,7 +1,7 @@
-#Content
+.Content#paymentweb
 	h1 Payment Web
-	//iframe(src= "../../../graph/example.html", width="800", height="800")
-	script(type='text/javascript')
-		createGraph()		
-	body(onload="createGraph();")
-	div#canvas
+	#paymentweb
+		iframe(onload="createGraph();" width="0" height="0")
+		div#canvas
+		script(type='text/javascript')
+			createGraph()		

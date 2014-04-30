@@ -3,7 +3,7 @@ function createGraph() // Creates graphs and renders
     $(document).ready(function() {
 
         // Width and heigh of canvas
-        var width = $(document).width()-200;
+        var width = 800;
         var height = $(document).height()-100;
 
         var g = new Graph();
@@ -92,7 +92,7 @@ function createGraph() // Creates graphs and renders
             var amount = "$"+data[i]["amount"].toFixed(2);
             // stroke and fill color = line
             // fill in "label-style" = font color of $
-            g.addEdge(payer,payee, {weight: 2, stroke :"green", fill: "green", directed: true, label : ""+amount, "label-style":{"font-size":20, fill: "#000"}});
+            g.addEdge(payer,payee, {weight: 2, stroke : "#38503C", fill: "#38503C", directed: true, label : ""+amount, "label-style":{"font-size":13, fill: "#38503C"}});
         }
 
         //  Rendering canvas
