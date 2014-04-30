@@ -4,5 +4,7 @@
     div(ng-controller="DataCtrl")
         ul
             li Test
-            li= test
+            li= #{test}
             li(ng-repeat="transaction in data") {{transaction.payee} owes {transaction.payer}}
+        script
+            var data = !{JSON.stringify(data)}
