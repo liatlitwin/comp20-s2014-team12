@@ -1,19 +1,6 @@
 #Content
     h1 Transaction Log
-    //#page
-
-    //the below is not working, but a rough idea of how we would display info from teh database... I think?
-    script.
-        var trans, translog;
-        data.forEach(function(trans){
-            alert(trans.user);
-            //if(trans.user == user.username){
-            translog += trans.payer + "  " + trans.payee; 
-            var content = document.getElementById("Content");
-            text = document.createTextNode(translog);
-            var list = document.createElement("li");
-            list.appendChild(text);
-            content.appendChild(list);
-            //}
-        });
-
+    ul
+        li Test
+        for trans in data
+            li= trans.payee
