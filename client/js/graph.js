@@ -92,7 +92,7 @@ function createGraph() // Creates graphs and renders
             var amount = "$"+data[i]["amount"].toFixed(2);
             // stroke and fill color = line
             // fill in "label-style" = font color of $
-            g.addEdge(payer,payee, {weight: 2, stroke :"#38503C", fill: "#38503C", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+10, fill: "#E8E8E8"}});
+            g.addEdge(payer,payee, {weight: 2, stroke :"#66CCCC", fill: "#66CCCC", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+5, fill: "#38503C"}});
         }
 
         //  Rendering canvas
