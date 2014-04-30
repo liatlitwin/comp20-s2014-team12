@@ -5,4 +5,4 @@
         ul
             li Test
             li= test
-            li(ng-repeat="transaction in data") {transaction.payer} - {transaction.payee}
+            li(ng-repeat="transaction in data") {{transaction.payee} owes {transaction.payer}}
