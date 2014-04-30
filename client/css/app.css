@@ -135,3 +135,4 @@ h2{
 .form-small .form-group input {
     width:60px;
 }
+select.input-group-lg > .form-control {width:20px}
