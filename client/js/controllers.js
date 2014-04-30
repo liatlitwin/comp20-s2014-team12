@@ -23,13 +23,14 @@ angular.module('angular-client-side-auth')
     $scope.userRoles = Auth.userRoles;
     $scope.accessLevels = Auth.accessLevels;
 
-    Auth.getData(function(res) {
+    /*Auth.getData(function(res) {
         $scope.data = res;
     }, function() {
         $rootScope.error = "Failed to retrieve data";
     });
+    */
         
-    //$scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
+    $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
     //$rootScope.success = JSON.stringify($scope.data);
 }]);
 
