@@ -7,6 +7,7 @@
 	hr
 	div(ng-controller="DataCtrl")
 		ul
-            li(ng-repeat="transaction in data") {{transaction.payer}} owes {{transaction.payee}} ${{transaction.amount}} because {{transaction.reason}}
-        script
-            var data = !{JSON.stringify(data)}
+			li Test
+			li(ng-repeat="transaction in data") {{transaction.payer}} owes {{transaction.payee}}
+		script
+			var data = !{JSON.stringify(data)}
