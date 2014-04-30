@@ -140,11 +140,12 @@ Graph.Renderer = {};
  * Renderer implementation using RaphaelJS
  */
 Graph.Renderer.Raphael = function(element, graph, width, height) {
+
     this.width = width || 400;
     this.height = height || 400;
     var selfRef = this;
     this.r = Raphael(element, this.width, this.height);
-    this.radius = 40; /* max dimension of a node */
+    this.radius = (this.width)*0.03+30; /* max dimension of a node */
     this.graph = graph;
     this.mouse_in = false;
 
@@ -291,8 +292,8 @@ Graph.Layout = {};
 Graph.Layout.Spring = function(graph) {
     this.graph = graph;
     this.iterations = 500;
-    this.maxRepulsiveForceDistance = 2;
-    this.k = 2;
+    this.maxRepulsiveForceDistance = 5;
+    this.k = 1.3;
     this.c = 0.01;
     this.maxVertexMovement = 0.5;
     this.layout();
