@@ -28,8 +28,7 @@ module.exports = {
             subject: 'Welcome to IOyou!',
             text: 'Thank you for registering!'
         }, function(err, json) {
-            console.log('broken!!');
-            return res.send(450);
+            return res.send(405, 'Failed to send email');
         });
 
 
