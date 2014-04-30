@@ -70,8 +70,8 @@ module.exports = {
     getData: function(req, res) {
         db.collection('ioyou', function(er, collection) {
             collection.find({}).toArray(function(err, docs) {
-                    res.status(200);
-                    res.send(docs);
+                    //res.status(200);
+                    res.json(docs);
               });
         });
 
