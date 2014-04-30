@@ -23,8 +23,8 @@ angular.module('angular-client-side-auth')
             $rootScope.error = "Failed to retrieve data";
         });
         */
-        $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}]
-        $rootScope.success = "Retrieved data";
+        $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
+        $rootScope.success = $scope.data;
     };
 }]);
 
