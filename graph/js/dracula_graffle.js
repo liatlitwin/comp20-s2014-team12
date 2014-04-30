@@ -77,7 +77,7 @@ Raphael.fn.connection = function (obj1, obj2, style) {
                 /* magnitude, length of the last path vector */
                 var mag = Math.sqrt((y4 - y3) * (y4 - y3) + (x4 - x3) * (x4 - x3));
                 /* vector normalisation to specified length  */
-                var norm = function(x,l){return (-x*(l||5)/mag);};
+                var norm = function(x,l){return (-x*(l||15)/mag);};
                 /* calculate array coordinates (two lines orthogonal to the path vector) */
                 var arr = [
                     {x:(norm(x4-x3)+norm(y4-y3)+x4).toFixed(3), y:(norm(y4-y3)+norm(x4-x3)+y4).toFixed(3)},
