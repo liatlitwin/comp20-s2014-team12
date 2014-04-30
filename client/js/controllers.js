@@ -17,6 +17,7 @@ angular.module('angular-client-side-auth')
     };
     $scope.getData = function() {
         Auth.getData(function(res) {
+            $rootScope.success = "Retrieved data";
             $scope.data = res;
         }, function() {
             $rootScope.error = "Failed to retrieve data";
