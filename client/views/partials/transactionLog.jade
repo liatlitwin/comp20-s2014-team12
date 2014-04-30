@@ -4,4 +4,4 @@
     div(ng-controller="NavCtrl")
     ul
         li Test
-        li(ng-repeat="transaction in data") {transaction.payee}
+        li(ng-repeat="transaction in data") {{transaction.payer}} - {{transaction.payee}}
