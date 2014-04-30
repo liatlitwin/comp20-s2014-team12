@@ -30,8 +30,8 @@ function createGraph() // Creates graphs and renders
                 var set = r.set().push(
                     /* custom objects go here */
                     // fill color here = color of the node
-                    r.rect(n.point[0]-45, n.point[1]-8, 90, 35).scale((width*.00075)+.3).attr({"fill": "#66CCCC", r : "10px", "stroke-width" : 1})).push(
-                    r.text(n.point[0], n.point[1] + 10, (n.label || n.id)).attr({"font-size": (width*.01)+5}));
+                    r.rect(n.point[0]-45, n.point[1]-8, 90, 35).scale((width*.00075)+.5).attr({"fill": "#E8E8E8", r : "10px", "stroke-width" : 1})).push(
+                    r.text(n.point[0], n.point[1] + 10, (n.label || n.id)).attr({"font-size": (width*.01)+10}));
                 return set;
             };
 
@@ -92,7 +92,7 @@ function createGraph() // Creates graphs and renders
             var amount = "$"+data[i]["amount"].toFixed(2);
             // stroke and fill color = line
             // fill in "label-style" = font color of $
-            g.addEdge(payer,payee, {weight: 2, stroke :"green", fill: "green", directed: true, label : ""+amount, "label-style":{"font-size":"20%", fill: "#000"}});
+            g.addEdge(payer,payee, {weight: 2, stroke :"green", fill: "green", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+10, fill: "#E8E8E8"}});
         }
 
         //  Rendering canvas

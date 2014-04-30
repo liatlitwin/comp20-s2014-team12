@@ -82,16 +82,6 @@ angular.module('angular-client-side-auth')
     $scope.userRoles = Auth.userRoles;
 
     $scope.register = function() {
-        /*var sendgrid = require('sendgrid')(process.env.app24539980@heroku.com, process.env.wyybwkby);
-        sendgrid.send({
-            to: $scope.email,
-            from: noreply@ioyou.com,
-            subject: 'Welcome to IOyou!',
-            text: 'Thank you for registering!'
-        }, function(err, json) {
-            if (err) $rootScope.error 'Failed to send email';   
-        });
-        */
         Auth.register({
                 username: $scope.username,
                 password: $scope.password,
