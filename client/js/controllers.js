@@ -24,6 +24,7 @@ angular.module('angular-client-side-auth')
         });
         */
         $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
+        $scope.test = JSON.stringify($scope.data);
         $rootScope.success = JSON.stringify($scope.data);
     };
 }]);
