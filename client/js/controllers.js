@@ -23,7 +23,6 @@ angular.module('angular-client-side-auth')
     $scope.userRoles = Auth.userRoles;
     $scope.accessLevels = Auth.accessLevels;
 
-    $scope.getData = function() {
         /*Auth.getData(function(res) {
             $rootScope.success = "Retrieved data";
             $scope.data = res;
@@ -31,10 +30,9 @@ angular.module('angular-client-side-auth')
             $rootScope.error = "Failed to retrieve data";
         });
         */
-        $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
-        $scope.test = JSON.stringify($scope.data);
-        $rootScope.success = JSON.stringify($scope.data);
-    };
+    $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
+    $scope.test = JSON.stringify($scope.data);
+    $rootScope.success = JSON.stringify($scope.data);
 }]);
 
 angular.module('angular-client-side-auth')
