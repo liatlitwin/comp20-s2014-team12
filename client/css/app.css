@@ -128,4 +128,10 @@ h2{
   height: auto;
 }
 
-.nav-tabs
+.form-inline .form-group input {
+    width:100px;
+}
+
+.form-small .form-group input {
+    width:60px;
+}
