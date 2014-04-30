@@ -85,6 +85,7 @@ angular.module('angular-client-side-auth')
         Auth.register({
                 username: $scope.username,
                 password: $scope.password,
+                email: $scope.email,
                 role: $scope.role
             },
             function() {

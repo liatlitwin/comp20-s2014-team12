@@ -26,15 +26,13 @@ module.exports = {
             return res.send(400, err.message);
         }
         sendgrid.send({
-            to: 'mcshane.bobby@gmail.com',
+            to: req.body.email,
             from: 'noreply@ioyou.com',
             subject: 'Welcome to IOyou!',
             text: 'Thank you for registering!'
         }, function(err, json) {
             return res.send(405, 'Failed to send email');
         });
-        
-
 
         User.addUser(req.body.username, req.body.password, req.body.role, function(err, user) {
             if(err === 'UserAlreadyExists') return res.send(403, "User already exists");
