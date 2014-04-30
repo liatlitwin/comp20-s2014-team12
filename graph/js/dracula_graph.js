@@ -145,7 +145,7 @@ Graph.Renderer.Raphael = function(element, graph, width, height) {
     this.height = height || 400;
     var selfRef = this;
     this.r = Raphael(element, this.width, this.height);
-    this.radius = 40; /* max dimension of a node */
+    this.radius = (this.width)*0.03+30; /* max dimension of a node */
     this.graph = graph;
     this.mouse_in = false;
 
