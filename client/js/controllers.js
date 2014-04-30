@@ -25,13 +25,11 @@ angular.module('angular-client-side-auth')
 
     Auth.getData(function(res) {
         $scope.data = res;
-        $rootScope.error = "Success";
+        //$rootScope.error = "Success";
     }, function() {
         $rootScope.error = "Failed to retrieve data";
     });
-    
-        
-    $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
+    //$scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}];
     //$rootScope.success = JSON.stringify($scope.data);
 }]);
 
