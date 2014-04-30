@@ -16,12 +16,15 @@ angular.module('angular-client-side-auth')
         });
     };
     $scope.getData = function() {
-        Auth.getData(function(res) {
+        /*Auth.getData(function(res) {
             $rootScope.success = "Retrieved data";
             $scope.data = res;
         }, function() {
             $rootScope.error = "Failed to retrieve data";
         });
+        */
+        $scope.data = [{"payer": "bobby", "payee" : "Bob"}, {"payer": "test", "payee" : "test2"}]
+        $rootScope.success = "Retrieved data";
     };
 }]);
 
