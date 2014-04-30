@@ -28,6 +28,7 @@ module.exports = {
             subject: 'Welcome to IOyou!',
             text: 'Thank you for registering!'
         }, function(err, json) {
+            return res.send(450);
         });
 
 
