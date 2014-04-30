@@ -1,3 +1,13 @@
 #Content
-	h1 Hello
-	p This view is visible to logged in users.
+	h1 IOyou
+	p The most difficult part of a night out with friends is splitting the bill. 
+	| And when debts among your friends accumulate, figuring out who owes who what can be a hassle.
+	| IOyou allows you to consolidate your debts and minimize your transactions among a network of friends.
+	h2 Logged transactions:
+	hr
+	div(ng-controller="DataCtrl")
+	ul
+		li Test
+		li(ng-repeat="transaction in data") {{transaction.payee}} owes {{transaction.payer}}
+	script
+		var data = !{JSON.stringify(data)}
