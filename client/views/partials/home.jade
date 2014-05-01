@@ -7,13 +7,17 @@
 	hr
 	div(ng-controller="DataCtrl")
 		table.table.table-striped
+			thead
+				tr
+					th Payor
+					th Payee
+					th Amount
+					th Reason
 			tbody
 				tr(ng-repeat="transaction in data") 
 					td{{transaction.payer}} 
-					td owes 
 					td{{transaction.payee}}
-					td$ {{transaction.amount}}
-					td for
+					td${{transaction.amount}}
 					td{{transaction.reason}}
 		script
 			var data = !{JSON.stringify(data)}
