@@ -88,7 +88,7 @@ function createMatrix() // Creates and fills the "alg_matrix" array
     for(var i = 0; i<alg_data.length; i++)
     {
         var payer = alg_data[i]["payee"];
-        var amount = alg_data[i]["amount"];
+        var amount = Number(alg_data[i]["amount"]);
         var payto = alg_data[i]["payer"];
         var payermap;
         var paytomap;
