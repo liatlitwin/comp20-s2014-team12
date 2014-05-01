@@ -84,8 +84,7 @@ module.exports = {
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
         db.collection('ioyou', function(er, collection) {
-            collection.find({}).toArray(function(err, docs) {
-                    //res.status(200);
+            collection.find({}).sort({_id: -1}).toArray(function(err, docs) {
                     res.send(docs);
               });
         });
