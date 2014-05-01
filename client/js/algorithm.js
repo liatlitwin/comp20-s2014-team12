@@ -18,7 +18,7 @@ function init(trans)
     checkMatrix();
     algorithm();
     checkMatrix();
-    sendResults();
+    return sendResults();
 }
 
 function checkSize()	// Calculates required alg_size for "alg_matrix" array
@@ -232,6 +232,7 @@ function checkMatrix()	// Prints out visual representation of "alg_matrix" and k
 
 function sendResults() // Sends final outcome to alg_database
 {
+    finastr = "";
     for(var i = 0; i<alg_size; i++)
     {
         for(var j = 0; j<alg_size; j++)
@@ -239,8 +240,9 @@ function sendResults() // Sends final outcome to alg_database
             endtotal += alg_matrix[i][j];
         }
     }
-    var finalarray = [];
+    var finalarray = new Array();
     var diff = (starttotal - endtotal);
+    diff = diff.toFixed(2);
     var numtrans = 0;
     for(var i = 0; i<alg_size; i++)
     {
@@ -253,11 +255,12 @@ function sendResults() // Sends final outcome to alg_database
                 var finalpayee = alg_mapping[j];
                 var finalamount = alg_matrix[i][j].toFixed(2);
                 
-                finalarray.push( {"payer":finalpayer, "payee": finalpayee, "amount": finalamount});
+                finalarray[finalarray.length] = {"payer":finalpayer, "payee": finalpayee, "amount": finalamount};
             }
         }
     }
+    finalstr = JSON.stringify(finalarray);
     endtotal = 0;
     numtrans = 0;
-    alert(JSON.stringify(finalarray));
+    return finalstr;
 }
