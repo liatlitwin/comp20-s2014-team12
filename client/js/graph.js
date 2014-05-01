@@ -1,6 +1,8 @@
 function createGraph() // Creates graphs and renders
 { 
-    $(document).ready(function() {
+    $(document).ready(function() 
+
+    {
 
         // Width and heigh of canvas
         var width = 800;
@@ -15,15 +17,16 @@ function createGraph() // Creates graphs and renders
         data = json;
         data = JSON.parse(init(data));
 
-        var render = function(r, n) {
+        var render = function(r, n)
+        {
                 /* the Raphael set is obligatory, containing all you want to display */
                 var set = r.set().push(
                     /* custom objects go here */
                     // fill color here = color of the node
                     r.rect(n.point[0]-45, n.point[1]-8, 90, 35).scale((width*.00075)+.5).attr({"fill": "#66CCCC", r : "10px", "stroke-width" : 1})).push(
                     r.text(n.point[0], n.point[1] + 10, (n.label || n.id)).attr({"font-size": (width*.01)+10}));
-                return set;
-            };
+                return set;    
+        };
 
         // Figuring out names of nodes / people
         var mapping = new Array();
@@ -90,5 +93,7 @@ function createGraph() // Creates graphs and renders
         // Replace 'canvas' with name of div
         var renderer = new Graph.Renderer.Raphael('canvas', g, width, height);
         renderer.draw();
+    
+    });
     });
 }
