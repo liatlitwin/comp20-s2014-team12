@@ -240,7 +240,7 @@ function sendResults() // Sends final outcome to alg_database
             endtotal += alg_matrix[i][j];
         }
     }
-    var finalstr = "";
+    var finalarray = new Array();
     var diff = (starttotal - endtotal);
     diff = diff.toFixed(2);
     var numtrans = 0;
@@ -254,7 +254,8 @@ function sendResults() // Sends final outcome to alg_database
                 var finalpayer = alg_mapping[i];
                 var finalpayee = alg_mapping[j];
                 var finalamount = alg_matrix[i][j].toFixed(2);
-                var finalstr = {"payer":finalpayer,"payee":payee,"amount":finalamount};
+                
+                finalarray[finalarray.length] = {"payer":finalpayer, "payee": finalpayee, "amount": finalamount};
             }
         }
     }
