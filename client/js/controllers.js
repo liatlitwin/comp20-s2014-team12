@@ -38,22 +38,27 @@ angular.module('angular-client-side-auth')
 
     $scope.newTransaction = function() {
         var transaction;
-        if ($scope.owed_paid == 'owes')
-            $rootScope.success = 'owes';
-        else if ($scope.owed_paid == 'paid')
-            $rootScope.success = 'paid';
-        else
-            $rootScope.error = 'neither';
-        Auth.newTransaction( {
-            payer: $scope.payer,
-            payee: $scope.payee,
-            amount: $scope.amount,
-            reason: $scope.reason
-        }, function() { //Success
-            //$rootScope.success = "Created transaction";
+        if ($scope.owed_paid == 'owes'){
+            transaction = {
+                payer: $scope.payee,
+                payee: $scope.payer,
+                amount: $scope.amount,
+                reason: $scope.reason
+            };
+        }
+        else {
+            transaction = {
+                payer: $scope.payer,
+                payee: $scope.payee,
+                amount: $scope.amount,
+                reason: $scope.reason
+            };
+        }
+        Auth.newTransaction( transaction , function() { //Success
+            $rootScope.success = "Created transaction";
             $location.path('/');
         }, function() {
-            //$rootScope.error = "Failed to create transaction";
+            $rootScope.error = "Failed to create transaction";
         });
     };
 }]);
