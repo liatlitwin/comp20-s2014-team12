@@ -6,8 +6,18 @@
 	h2 Logged transactions:
 	hr
 	div(ng-controller="DataCtrl")
-		ul
-			li Test
-			li(ng-repeat="transaction in data") {{transaction.payer}} owes {{transaction.payee}}
+		table.table.table-striped
+			thead
+				tr
+					th Payor
+					th Payee
+					th Amount
+					th Reason
+			tbody
+				tr(ng-repeat="transaction in data") 
+					td{{transaction.payer}} 
+					td{{transaction.payee}}
+					td${{transaction.amount}}
+					td{{transaction.reason}}
 		script
 			var data = !{JSON.stringify(data)}
