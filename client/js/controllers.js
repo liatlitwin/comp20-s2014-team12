@@ -38,7 +38,7 @@ angular.module('angular-client-side-auth')
 
     $scope.newTransaction = function() {
         var transaction;
-        if ($scope.owed_paid == 'owes'){
+        if ($scope.owed_paid == 'paid'){
             transaction = {
                 payer: $scope.payer,
                 payee: $scope.payee,
