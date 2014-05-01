@@ -5,7 +5,7 @@
         .form-group
             input.form-control(type="text", data-ng-model="payer", placeholder="name", name="payer", required, autofocus)
             select.form-control(data-ng-model="owed_paid", name = "owed_paid", required, autofocus)
-                option(value="owes", selected) owes
+                option(value="owes", selected="selected") owes
                 option(value="paid") paid
             input.form-control(type="text", data-ng-model="payee", placeholder="name", name="payee", required, autofocus)
             input.form-control(type="text", data-ng-model="amount", placeholder="$0.00", name="amount", required, autofocus)
