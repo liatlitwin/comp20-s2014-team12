@@ -202,7 +202,6 @@ function algorithm()    // The Algorithm. Simplifies the debts.
                     if(action == true)
                     {
                         checkMatrix();
-                        
                     }
 
                     alg_matrix[i][j] = Math.round(alg_matrix[i][j]*100)/100;
