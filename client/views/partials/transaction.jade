@@ -8,11 +8,12 @@
                 option(value="owes", selected="selected") owes
                 option(value="paid") paid
             input.form-control(type="text", data-ng-model="payee", placeholder="name", name="payee", required, autofocus)
-            input.form-control(type="text", data-ng-model="amount", placeholder="$0.00", name="amount", required, autofocus)
+            label.control-label $ 
+            input.form-control(type="text", data-ng-model="amount", placeholder="0.00", name="amount", required, autofocus)
             br
             br
         .form-group
-            textarea.form-control(type="text", cols = "54", data-ng-model="reason", placeholder="reason", name="reason", required, autofocus)
+            textarea.form-control(type="text", cols = "55", data-ng-model="reason", placeholder="reason", name="reason", required, autofocus)
             br
             br
         .form-group
