@@ -242,11 +242,9 @@ function sendResults() // Sends final outcome to alg_database
     }
     var finalarray = new Array();
     var diff = (starttotal - endtotal);
-<<<<<<< HEAD
+
     diff = diff.toFixed(2);
-=======
-	diff = diff.toFixed(2);
->>>>>>> 5caa6378236e7d0b146833dd16b944ced9e0b2fa
+
     var numtrans = 0;
     for(var i = 0; i<alg_size; i++)
     {

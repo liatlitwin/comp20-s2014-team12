@@ -14,7 +14,7 @@ function createGraph() // Creates graphs and renders
         $.getJSON("http://ioyou-app.herokuapp.com/data", function(json){
 		data = json;
 
-        data = init(data);
+        data = JSON.parse(init(data));
 		//init(data);
 		var render = function(r, n) {
 		        /* the Raphael set is obligatory, containing all you want to display */
