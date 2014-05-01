@@ -25,6 +25,7 @@ function createGraph() // Creates graphs and renders
         data = [];
         $.getJSON("http://ioyou-app.herokuapp.com/data", function(json){
 		data = json;
+        
         data = init(data);
 		//init(data);
 		var render = function(r, n) {
