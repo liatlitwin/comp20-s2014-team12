@@ -40,16 +40,16 @@ angular.module('angular-client-side-auth')
         var transaction;
         if ($scope.owed_paid == 'owes'){
             transaction = {
-                payer: $scope.payee,
-                payee: $scope.payer,
+                payer: $scope.payer,
+                payee: $scope.payee,
                 amount: $scope.amount,
                 reason: $scope.reason
             };
         }
         else {
             transaction = {
-                payer: $scope.payer,
-                payee: $scope.payee,
+                payer: $scope.payee,
+                payee: $scope.payer,
                 amount: $scope.amount,
                 reason: $scope.reason
             };
