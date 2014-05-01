@@ -8,7 +8,6 @@ function createGraph() // Creates graphs and renders
 
         var g = new Graph();
         g.edgeFactory.template.style.directed = true;
-
         // Import data from MongoLab here
 
         // Test data
