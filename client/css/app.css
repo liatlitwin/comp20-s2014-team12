@@ -8,6 +8,9 @@ body {
 	background-color: #8DC995;
    	//font-size: 1em;
 }
+html, body{
+  height:100%;
+}
 
 #cover {
     position:absolute;
@@ -105,6 +108,23 @@ h2{
   text-align: center;
   margin-bottom: -20px;
 }
+
+ #footer { 
+  
+   
+ }
+ .panel-footer {
+  padding: 10px 15px;
+  background-color: #E8E8E8;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  margin-top: 200px;
+}
+
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,

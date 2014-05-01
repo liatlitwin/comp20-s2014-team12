@@ -16,11 +16,10 @@ html(lang='en', data-ng-app='angular-client-side-auth')
             if (window.location.href.indexOf('#_=_') > 0) {
                 window.location = window.location.href.replace(/#.*/, '');
             }
-    body(data-ng-cloak)
 
+    body(data-ng-cloak)
         .ioyou IOyou
         .ioyousub Consolidate debts, minimize transactions 
-
         .navbar(data-ng-controller="NavCtrl")
             .navbar-inner
                 .container-fluid
@@ -53,7 +52,10 @@ html(lang='en', data-ng-app='angular-client-side-auth')
         #alertBox.alert.alert-success(data-ng-show="success")
             button(type="button", class="close", data-ng-click="success = null;") &times;
             strong Yay!&nbsp;
-            span(data-ng-bind="success")
+                span(data-ng-bind="success")
+    .panel-footer Made for Ming Chow's 
+        a(href="http://tuftsdev.github.io/WebProgramming/") Web Programming course 
+        | By Bobby McShane, Win Halelamien, Liat Litwin, Peter Paleologopoulos
 
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-cookies/angular-cookies.min.js')
