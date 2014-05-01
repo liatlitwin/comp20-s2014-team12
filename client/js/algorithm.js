@@ -183,7 +183,7 @@ function algorithm()    // The Algorithm. Simplifies the debts.
                     // Person A pays part of Person B's debt to Person C 
                     else if(xamount < yamount && xamount != 0 && yamount!= 0 && x!=k)
                     {
-                        alg_matrix[i][k] = xamount;
+                        alg_matrix[i][k] += xamount;
                         alg_matrix[j][k] = yamount-xamount;
                         alg_matrix[i][j] = 0;
                         alg_changed = true;
@@ -192,7 +192,7 @@ function algorithm()    // The Algorithm. Simplifies the debts.
                     // Person A pays all of Person B's debt to Person C and pays Person B
                     else if(xamount > yamount && xamount != 0 & yamount != 0 && x!=k)
                     {
-                        alg_matrix[i][k] = yamount;
+                        alg_matrix[i][k] += yamount;
                         alg_matrix[j][k] = 0;
                         alg_matrix[i][j] = xamount - yamount;
                         alg_changed = true;
