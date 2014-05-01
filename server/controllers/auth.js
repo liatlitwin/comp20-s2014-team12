@@ -80,6 +80,9 @@ module.exports = {
             res.send(400);
     },
     getData: function(req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
         db.collection('ioyou', function(er, collection) {
             collection.find({}).toArray(function(err, docs) {
                     //res.status(200);
