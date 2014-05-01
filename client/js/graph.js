@@ -10,9 +10,12 @@ function createGraph() // Creates graphs and renders
         g.edgeFactory.template.style.directed = true;
 
         // Import data from MongoLab here
-        
+        var data = [];
+        $.getJSON("http://ioyou-app.herokuapp.com/data", function(json){
+            data = json;
+        });
         // Test data
-        data = [
+        /*data = [
         {"payer":"peter","amount":4.74, "payee":"win"},
         {"payer":"peter","amount":4.74, "payee":"michael"},
         {"payer":"jack","amount":7.69, "payee":"win"},
@@ -24,6 +27,7 @@ function createGraph() // Creates graphs and renders
         {"payer":"bobby","amount":24.92, "payee":"win"},
         {"payer":"A","amount":4.00, "payee":"B"},    
         {"payer":"A","amount":0.02, "payee":"C"}];
+        */
 
         var render = function(r, n) {
                 /* the Raphael set is obligatory, containing all you want to display */
