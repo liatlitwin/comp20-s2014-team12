@@ -252,7 +252,7 @@ function sendResults() // Sends final outcome to alg_database
                 var finalpayer = alg_mapping[i];
                 var finalpayee = alg_mapping[j];
                 var finalamount = alg_matrix[i][j];
-		//if (finalamount)
+		if (finalamount)
                 	finalstr.push({"payer":finalpayer,"payee":finalpayee,"amount":finalamount});
             }
         }

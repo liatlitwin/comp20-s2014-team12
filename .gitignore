@@ -17,6 +17,7 @@ local.properties
 .loadpath
 .idea/
 node_modules/
+*~
 
 # External tool builders
 .externalToolBuilders/

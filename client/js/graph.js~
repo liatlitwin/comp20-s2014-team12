@@ -13,7 +13,7 @@ function createGraph() // Creates graphs and renders
         data = [];
         $.getJSON("http://ioyou-app.herokuapp.com/data", function(json){
 		data = json;
-		//init(data);
+		init(data);
 		var render = function(r, n) {
 		        /* the Raphael set is obligatory, containing all you want to display */
 		        var set = r.set().push(
@@ -81,7 +81,7 @@ function createGraph() // Creates graphs and renders
 		    var amount = "$"+data[i]["amount"];
 		    // stroke and fill color = line
 		    // fill in "label-style" = font color of $
-		    g.addEdge(payee,payer, {weight: 2, stroke :"#66CCCC", fill: "#66CCCC", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+5, fill: "#38503C"}});
+		    g.addEdge(payer,payee, {weight: 2, stroke :"#66CCCC", fill: "#66CCCC", directed: true, label : ""+amount, "label-style":{"font-size":(width*.01)+5, fill: "#38503C"}});
 		}
 
 		//  Rendering canvas
