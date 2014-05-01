@@ -37,16 +37,23 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.newTransaction = function() {
+        var transaction;
+        if ($scope.owed_paid == 'owes')
+            $rootScope.success = 'owes';
+        else if ($scope.owed_paid == 'paid')
+            $rootScope.success = 'paid';
+        else
+            $rootScope.error = 'neither';
         Auth.newTransaction( {
             payer: $scope.payer,
             payee: $scope.payee,
             amount: $scope.amount,
             reason: $scope.reason
         }, function() { //Success
-            $rootScope.success = "Created transaction";
+            //$rootScope.success = "Created transaction";
             $location.path('/');
         }, function() {
-            $rootScope.error = "Failed to create transaction";
+            //$rootScope.error = "Failed to create transaction";
         });
     };
 }]);
