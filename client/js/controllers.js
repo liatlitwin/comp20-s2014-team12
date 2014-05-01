@@ -37,12 +37,24 @@ angular.module('angular-client-side-auth')
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.newTransaction = function() {
-        Auth.newTransaction( {
-            payer: $scope.payer,
-            payee: $scope.payee,
-            amount: $scope.amount,
-            reason: $scope.reason
-        }, function() { //Success
+        var transaction;
+        if ($scope.owed_paid == 'owes'){
+            transaction = {
+                payer: $scope.payee,
+                payee: $scope.payer,
+                amount: $scope.amount,
+                reason: $scope.reason
+            };
+        }
+        else {
+            transaction = {
+                payer: $scope.payer,
+                payee: $scope.payee,
+                amount: $scope.amount,
+                reason: $scope.reason
+            };
+        }
+        Auth.newTransaction( transaction , function() { //Success
             $rootScope.success = "Created transaction";
             $location.path('/');
         }, function() {
@@ -85,6 +97,7 @@ angular.module('angular-client-side-auth')
         Auth.register({
                 username: $scope.username,
                 password: $scope.password,
+                email: $scope.email,
                 role: $scope.role
             },
             function() {

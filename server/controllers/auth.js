@@ -12,7 +12,10 @@ var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
     db = databaseConnection;
 });
 
-var sendgrid = require('sendgrid')('process.env.app24539980@heroku.com', 'process.env.wyybwkby');
+var sendgrid = require('sendgrid')(
+    'app24539980@heroku.com', 
+    'wyybwkby'
+);
 
 module.exports = {
     register: function(req, res, next) {
@@ -23,15 +26,13 @@ module.exports = {
             return res.send(400, err.message);
         }
         sendgrid.send({
-            to: 'mcshane.bobby@gmail.com',
+            to: req.body.email,
             from: 'noreply@ioyou.com',
             subject: 'Welcome to IOyou!',
             text: 'Thank you for registering!'
         }, function(err, json) {
-            console.log('broken!!');
-            return res.send(450);
+            return res.send(405, 'Failed to send email');
         });
-
 
         User.addUser(req.body.username, req.body.password, req.body.role, function(err, user) {
             if(err === 'UserAlreadyExists') return res.send(403, "User already exists");
@@ -79,6 +80,9 @@ module.exports = {
             res.send(400);
     },
     getData: function(req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
         db.collection('ioyou', function(er, collection) {
             collection.find({}).toArray(function(err, docs) {
                     //res.status(200);

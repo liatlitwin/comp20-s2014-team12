@@ -10,7 +10,7 @@ function createGraph() // Creates graphs and renders
         g.edgeFactory.template.style.directed = true;
 
         // Import data from MongoLab here
-
+        
         // Test data
         data = [
         {"payer":"peter","amount":4.74, "payee":"win"},

@@ -4,11 +4,10 @@
     form.form-inline(data-ng-controller="TransCtrl", ng-submit="newTransaction()", name="transactionForm", role="form")
         .form-group
             input.form-control(type="text", data-ng-model="payer", placeholder="name", name="payer", required, autofocus)
-            select.form-control(name = "owed_paid")
-                option owes
-                option paid
+            select.form-control(data-ng-model="owed_paid", name = "owed_paid", required, autofocus)
+                option(value="owes", selected="selected") owes
+                option(value="paid") paid
             input.form-control(type="text", data-ng-model="payee", placeholder="name", name="payee", required, autofocus)
-            //label.control-label &nbsp;&nbsp;&nbsp;$
             input.form-control(type="text", data-ng-model="amount", placeholder="$0.00", name="amount", required, autofocus)
             br
             br
