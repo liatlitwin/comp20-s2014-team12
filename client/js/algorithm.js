@@ -30,7 +30,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         var duplicate = false;
         for (var j = 0; j<alg_mapping.length; j++)
         {
-            var strpayer = alg_data[i]["payer"];
+            var strpayer = alg_data[i]["payee"];
             var strtest = alg_mapping[j];
 
             if(strpayer == strtest)
@@ -40,7 +40,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         }
         if(duplicate == false)
         {
-            var name = alg_data[i]["payer"];
+            var name = alg_data[i]["payee"];
             alg_mapping[alg_mapping.length] = name;
         }
 
@@ -52,7 +52,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         var duplicate = false;
         for (var j = 0; j<alg_mapping.length; j++)
         {
-            var strpayto = alg_data[i]["payee"];
+            var strpayto = alg_data[i]["payer"];
             var strtest = alg_mapping[j];
 
             if(strpayto == strtest)
@@ -62,7 +62,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         }
         if(duplicate == false)
         {
-            var name = alg_data[i]["payee"];
+            var name = alg_data[i]["payer"];
             alg_mapping[alg_mapping.length] = name;
         }
     }
@@ -87,15 +87,15 @@ function createMatrix() // Creates and fills the "alg_matrix" array
 
     for(var i = 0; i<alg_data.length; i++)
     {
-        var payer = alg_data[i]["payer"];
+        var payee = alg_data[i]["payee"];
         var amount = alg_data[i]["amount"];
-        var payto = alg_data[i]["payee"];
+        var payto = alg_data[i]["payer"];
         var payermap;
         var paytomap;
 
         for(var j=0; j<alg_mapping.length;j++)
         {
-            if(payer == alg_mapping[j])
+            if(payee == alg_mapping[j])
             {
                 payermap = j;
             }
@@ -258,7 +258,7 @@ function sendResults() // Sends final outcome to alg_database
                 var finalpayee = alg_mapping[j];
                 var finalamount = alg_matrix[i][j].toFixed(2);
                 
-                finalarray[finalarray.length] = {"payer":finalpayer, "payee": finalpayee, "amount": finalamount};
+                finalarray[finalarray.length] = {"payee":finalpayer, "payer": finalpayee, "amount": finalamount};
             }
         }
     }
