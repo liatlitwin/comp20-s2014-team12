@@ -239,7 +239,7 @@ function sendResults() // Sends final outcome to alg_database
             endtotal += alg_matrix[i][j];
         }
     }
-    var finalstr = [];
+    var finalarray = [];
     var diff = (starttotal - endtotal);
     var numtrans = 0;
     for(var i = 0; i<alg_size; i++)
@@ -251,13 +251,13 @@ function sendResults() // Sends final outcome to alg_database
                 numtrans++;
                 var finalpayer = alg_mapping[i];
                 var finalpayee = alg_mapping[j];
-                var finalamount = alg_matrix[i][j];
-		//if (finalamount)
-                	finalstr.push({"payer":finalpayer,"payee":finalpayee,"amount":finalamount});
+                var finalamount = alg_matrix[i][j].toFixed(2);
+                
+                finalarray.push( {"payer":finalpayer, "payee": finalpayee, "amount": finalamount});
             }
         }
     }
     endtotal = 0;
     numtrans = 0;
-    alert(JSON.stringify(finalstr));
+    alert(JSON.stringify(finalarray));
 }
