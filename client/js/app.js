@@ -4,6 +4,7 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
 
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
+        $httpProvider.defaults.useXDomain = true;
     var access = routingConfig.accessLevels;
 
     // Public routes
