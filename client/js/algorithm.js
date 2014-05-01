@@ -12,6 +12,7 @@ var alg_changed = true;
 
 function init(trans)
 {
+
     alg_data = trans;
     checkSize();
     createMatrix();
@@ -51,7 +52,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         var duplicate = false;
         for (var j = 0; j<alg_mapping.length; j++)
         {
-            var strpayto = alg_data[i]["PayTo"];
+            var strpayto = alg_data[i]["payee"];
             var strtest = alg_mapping[j];
 
             if(strpayto == strtest)
@@ -61,7 +62,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         }
         if(duplicate == false)
         {
-            var name = alg_data[i]["PayTo"];
+            var name = alg_data[i]["payee"];
             alg_mapping[alg_mapping.length] = name;
         }
     }
@@ -87,8 +88,8 @@ function createMatrix() // Creates and fills the "alg_matrix" array
     for(var i = 0; i<alg_data.length; i++)
     {
         var payer = alg_data[i]["payer"];
-        var amount = alg_data[i]["Amount"];
-        var payto = alg_data[i]["PayTo"];
+        var amount = alg_data[i]["amount"];
+        var payto = alg_data[i]["payee"];
         var payermap;
         var paytomap;
 
