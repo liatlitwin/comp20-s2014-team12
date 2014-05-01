@@ -1,12 +1,12 @@
 var alg_size;
-var alg_data = new Array();		// Raw alg_data from JSON
+var alg_data = new Array();     // Raw alg_data from JSON
 var alg_request = new XMLHttpRequest();
-var alg_matrix = new Array();	// Main money alg_matrix
-var alg_mapping = new Array();	// Key for "alg_matrix" array
-var alg_numpayto;	// Number of people to be paid
-var alg_numpayer; 	// Number of payers
-var starttotal=0;	// Number of dollars in transfer before algorithm
-var endtotal=0;	// Number of dollars in transfer after algorithm
+var alg_matrix = new Array();   // Main money alg_matrix
+var alg_mapping = new Array();  // Key for "alg_matrix" array
+var alg_numpayto;   // Number of people to be paid
+var alg_numpayer;   // Number of payers
+var starttotal=0;   // Number of dollars in transfer before algorithm
+var endtotal=0; // Number of dollars in transfer after algorithm
 var alg_changed = true;
 
 
@@ -22,7 +22,7 @@ function init(trans)
     return sendResults();
 }
 
-function checkSize()	// Calculates required alg_size for "alg_matrix" array
+function checkSize()    // Calculates required alg_size for "alg_matrix" array
 {
     for(var i = 0; i<alg_data.length; i++)
     {
@@ -30,7 +30,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         var duplicate = false;
         for (var j = 0; j<alg_mapping.length; j++)
         {
-            var strpayer = alg_data[i]["payee"];
+            var strpayer = alg_data[i]["payer"];
             var strtest = alg_mapping[j];
 
             if(strpayer == strtest)
@@ -40,7 +40,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         }
         if(duplicate == false)
         {
-            var name = alg_data[i]["payee"];
+            var name = alg_data[i]["payer"];
             alg_mapping[alg_mapping.length] = name;
         }
 
@@ -52,7 +52,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         var duplicate = false;
         for (var j = 0; j<alg_mapping.length; j++)
         {
-            var strpayto = alg_data[i]["payer"];
+            var strpayto = alg_data[i]["payee"];
             var strtest = alg_mapping[j];
 
             if(strpayto == strtest)
@@ -62,7 +62,7 @@ function checkSize()	// Calculates required alg_size for "alg_matrix" array
         }
         if(duplicate == false)
         {
-            var name = alg_data[i]["payer"];
+            var name = alg_data[i]["payee"];
             alg_mapping[alg_mapping.length] = name;
         }
     }
@@ -87,7 +87,7 @@ function createMatrix() // Creates and fills the "alg_matrix" array
 
     for(var i = 0; i<alg_data.length; i++)
     {
-        var payee = alg_data[i]["payee"];
+        var payer = alg_data[i]["payee"];
         var amount = alg_data[i]["amount"];
         var payto = alg_data[i]["payer"];
         var payermap;
@@ -95,7 +95,7 @@ function createMatrix() // Creates and fills the "alg_matrix" array
 
         for(var j=0; j<alg_mapping.length;j++)
         {
-            if(payee == alg_mapping[j])
+            if(payer == alg_mapping[j])
             {
                 payermap = j;
             }
@@ -119,7 +119,7 @@ function createMatrix() // Creates and fills the "alg_matrix" array
 
 }
 
-function algorithm()	// The Algorithm. Simplifies the debts.
+function algorithm()    // The Algorithm. Simplifies the debts.
 {
     alg_changed = true;
     while (alg_changed == true)
@@ -134,13 +134,13 @@ function algorithm()	// The Algorithm. Simplifies the debts.
         {
             for(var j = 0; j<alg_size; j++)
             {
-                xamount = alg_matrix[i][j];
+
                 x = i;
                 y = j;
                 for(var k =  0; k<alg_size; k++)
                 {
                     var action = false;
-
+                    xamount = alg_matrix[i][j];
                     // Bidirectional - Debt between 2 people
                     if(alg_matrix[i][j] != 0 && alg_matrix[j][i] !=0)
                     {
@@ -175,7 +175,8 @@ function algorithm()	// The Algorithm. Simplifies the debts.
                     if(xamount == yamount && xamount != 0 && yamount != 0 && x !=k)
                     {
                         alg_matrix[j][k] = 0
-                            alg_matrix[i][k] = xamount;
+                        alg_matrix[i][k] += xamount;
+                        alg_matrix[i][j] = 0;
                         alg_changed = true;
                         action = true;
                     }
@@ -201,6 +202,7 @@ function algorithm()	// The Algorithm. Simplifies the debts.
                     if(action == true)
                     {
                         checkMatrix();
+                        
                     }
 
                     alg_matrix[i][j] = Math.round(alg_matrix[i][j]*100)/100;
@@ -215,7 +217,7 @@ function algorithm()	// The Algorithm. Simplifies the debts.
     }
 }
 
-function checkMatrix()	// Prints out visual representation of "alg_matrix" and key in console
+function checkMatrix()  // Prints out visual representation of "alg_matrix" and key in console
 {
     //console.log(alg_mapping);
     for(var i = 0; i<alg_size; i++)
@@ -227,7 +229,9 @@ function checkMatrix()	// Prints out visual representation of "alg_matrix" and k
         }
         //console.log(printout);
 
+
     }
+    //console.log("next");
 
 }
 
@@ -258,7 +262,7 @@ function sendResults() // Sends final outcome to alg_database
                 var finalpayee = alg_mapping[j];
                 var finalamount = alg_matrix[i][j].toFixed(2);
                 
-                finalarray[finalarray.length] = {"payee":finalpayer, "payer": finalpayee, "amount": finalamount};
+                finalarray[finalarray.length] = {"payer":finalpayer, "payee": finalpayee, "amount": finalamount};
             }
         }
     }
